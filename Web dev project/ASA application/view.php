@@ -5,19 +5,19 @@ if(isset($_POST['search']))
     $valueToSearch = $_POST['valueToSearch'];
     // search in all table columns
     // using concat mysql function
-    $query = "SELECT * FROM `form` WHERE CONCAT(`candidate_name`, `contact`) LIKE '%".$valueToSearch."%'";
+    $query = "SELECT * FROM `form1` WHERE CONCAT(`candidate_name`, `contact`) LIKE '%".$valueToSearch."%'";
     $search_result = filterTable($query);
 
 }
  else {
-    $query = "SELECT * FROM `form`";
+    $query = "SELECT * FROM `form1`";
     $search_result = filterTable($query);
 }
 
 // function to connect and execute the query
 function filterTable($query)
 {
-    $connect = mysqli_connect("localhost", "root", "", "application_form");
+    $connect = mysqli_connect("localhost", "root", "", "multi_login");
     $filter_Result = mysqli_query($connect, $query);
     return $filter_Result;
 }
